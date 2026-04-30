@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Lakeviya - RCB's New Era: $1.78B Deal & Birla Family Takeover</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiralal AI - Google Search + Wikipedia + AI Assistants</title>
     <style>
         * {
             margin: 0;
@@ -12,1037 +12,694 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #fafaf8;
-            overflow-x: hidden;
-        }
-
-        /* 3D Canvas Container (background particles + ball) */
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        /* Glassmorphism Header */
-        .site-header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .owner-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #c49a6c;
-            transition: transform 0.3s ease;
-        }
-        .owner-avatar:hover {
-            transform: rotateY(5deg) scale(1.02);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            text-decoration: none;
-            color: #1e3a5f;
-        }
-        .logo span {
-            color: #c49a6c;
-        }
-
-        .tagline {
-            color: #666;
-            font-size: 0.75rem;
-            font-family: monospace;
-            margin-top: 0.15rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 0.9rem;
-            transition: color 0.2s, transform 0.2s;
-        }
-        .nav-links a:hover {
-            color: #c49a6c;
-            transform: translateY(-2px);
-        }
-
-        .main-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Refined 3D Hover Effects */
-        .ad-container, .gallery-item, .owner-bio, .featured-image, .stat-card, .video-note, .newsletter {
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.4s ease;
-            will-change: transform;
-        }
-        .ad-container:hover, .gallery-item:hover, .owner-bio:hover, .featured-image:hover, .stat-card:hover, .video-note:hover, .newsletter:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Parallax on featured image */
-        .featured-image {
-            overflow: hidden;
-        }
-        .featured-img {
-            transition: transform 0.5s ease;
-        }
-        .featured-image:hover .featured-img {
-            transform: scale(1.02);
-        }
-
-        /* Article Styles */
-        .article-header {
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 1.5rem;
-        }
-
-        .category {
-            display: inline-block;
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #c49a6c;
-            margin-bottom: 1rem;
-        }
-
-        .article-title {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: #1a2a3a;
-        }
-
-        .article-meta {
-            display: flex;
-            gap: 1.5rem;
-            color: #666;
-            font-size: 0.85rem;
-            font-family: 'Helvetica Neue', sans-serif;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* Ad Container */
-        .ad-container {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            margin: 2rem 0;
-            overflow: hidden;
-            font-family: 'Helvetica Neue', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .ad-label {
-            background: #f0f0f0;
-            padding: 0.2rem 1rem;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #777;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .ad-content {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .ad-image {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #f5f3ef;
-            flex-shrink: 0;
-            transition: transform 0.3s;
-        }
-        .ad-container:hover .ad-image {
-            transform: scale(1.03);
-        }
-
-        .ad-text {
-            flex: 1;
-            min-width: 180px;
-        }
-
-        .ad-text h4 {
-            margin-bottom: 0.25rem;
-            font-size: 1rem;
-        }
-
-        .ad-text p {
-            font-size: 0.85rem;
-            color: #666;
-            margin: 0.25rem 0;
-        }
-
-        .ad-price {
-            font-weight: bold;
-            color: #c49a6c;
-            font-size: 1rem;
-            margin: 0.3rem 0;
-        }
-
-        .ad-btn {
-            display: inline-block;
-            background: #c49a6c;
-            color: white;
-            padding: 0.4rem 1rem;
+        .chat-container {
+            width: 550px;
+            height: 750px;
+            background: white;
             border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-top: 0.3rem;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .ad-btn:hover {
-            background: #b08558;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .ad-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .ad-text {
-                text-align: center;
-            }
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            .logo-area {
-                justify-content: center;
-            }
-            .article-title {
-                font-size: 1.8rem;
-            }
-            .owner-bio {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        .image-gallery {
-            margin: 2rem 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
-        .gallery-img {
-            width: 100%;
-            height: 200px;
-            background: #e2e8f0;
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 28px;
+        }
+
+        .header h1 span {
+            color: #ffd700;
+        }
+
+        .header p {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .feature-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+        }
+
+        /* Founder section - smaller */
+        .founder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 10px;
+        }
+        .founder-avatar {
+            width: 24px;
+            height: 24px;
+            background: #ffd700;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
         }
-        .gallery-img img {
+        .founder-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
         }
-        .gallery-item:hover .gallery-img img {
+        .founder-name {
+            font-weight: 500;
+            font-size: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .user-message {
+            flex-direction: row-reverse;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+            overflow: hidden;
+            background: #10a37f;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .ai-avatar {
+            background: #10a37f;
+            color: white;
+        }
+
+        .bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .user-bubble {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+        }
+
+        .ai-bubble {
+            background: #e9ecef;
+            color: #2c3e50;
+            border-radius: 18px 18px 18px 4px;
+        }
+
+        .link-box {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .link-box a {
+            color: #667eea;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .link-box a:hover {
+            text-decoration: underline;
+        }
+
+        .google-link {
+            background: #4285f4;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            margin-right: 8px;
+            transition: background 0.2s;
+        }
+
+        .google-link:hover {
+            background: #3367d6;
+            transform: scale(1.02);
+        }
+
+        .news-link {
+            background: #ea4335;
+        }
+        .news-link:hover {
+            background: #c5221f;
+        }
+        .trends-link {
+            background: #34a853;
+        }
+        .trends-link:hover {
+            background: #2d8e47;
+        }
+
+        /* Even smaller copy buttons */
+        .copy-btn {
+            background: #10a37f;
+            color: white;
+            border: none;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            cursor: pointer;
+            margin-left: 3px;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .copy-btn:hover {
+            background: #0e8c6d;
+        }
+
+        .input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #dee2e6;
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
             transform: scale(1.05);
         }
 
-        .gallery-caption {
-            padding: 0.75rem;
-            background: white;
-            font-size: 0.8rem;
-            color: #555;
-            text-align: center;
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: #f5f3ef;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #c49a6c;
-            font-family: monospace;
-        }
-
-        .owner-bio {
-            background: linear-gradient(135deg, #f8f6f2 0%, #fff 100%);
-            padding: 2rem;
-            border-radius: 20px;
-            margin: 2rem 0;
+        .typing {
             display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-            border: 1px solid #e8e2d4;
-            transition: all 0.3s;
+            gap: 4px;
+            padding: 5px 0;
         }
 
-        .owner-avatar-large {
-            width: 120px;
-            height: 120px;
+        .typing span {
+            width: 8px;
+            height: 8px;
+            background: #667eea;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #c49a6c;
-            transition: transform 0.3s;
-        }
-        .owner-bio:hover .owner-avatar-large {
-            transform: scale(1.02);
+            animation: bounce 1.4s infinite;
         }
 
-        .owner-info h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.6rem;
-            color: #1e3a5f;
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
         }
 
-        .owner-title {
-            color: #c49a6c;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-        .social-links a:hover {
-            color: #c49a6c;
-        }
-
-        .newsletter {
-            background: #1e3a5f;
-            color: white;
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            margin: 2rem 0;
-            transition: transform 0.3s;
-        }
-
-        .newsletter h3 {
-            color: white;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .newsletter-form input {
-            padding: 0.75rem 1rem;
-            border: none;
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 12px;
             border-radius: 8px;
-            width: 280px;
+            overflow-x: auto;
+            margin: 8px 0;
+            font-family: monospace;
+            font-size: 12px;
         }
 
-        .newsletter-form button {
-            background: #c49a6c;
-            border: none;
-            padding: 0.75rem 1.8rem;
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .newsletter-form button:hover {
-            background: #b08558;
-            transform: scale(1.02);
-        }
-
-        .picks-section {
-            margin: 3rem 0;
-        }
-
-        .picks-title {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #c49a6c;
-            display: inline-block;
-        }
-
-        .site-footer {
-            background: #1a2a3a;
-            color: #ccc;
-            padding: 3rem 2rem 2rem;
-            margin-top: 4rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #aaa;
-            text-decoration: none;
-            font-size: 0.85rem;
-            line-height: 1.8;
-        }
-
-        .footer-col a:hover {
-            color: #c49a6c;
-        }
-
-        .copyright {
+        .footer {
+            font-size: 9px;
+            color: #888;
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #334155;
-            font-size: 0.75rem;
+            padding: 8px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
         }
 
-        .video-note {
-            background: #f0f2f5;
-            padding: 1rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-            border-left: 3px solid #c49a6c;
+        ::-webkit-scrollbar {
+            width: 6px;
         }
 
-        .pull-quote {
-            border-left: 4px solid #c49a6c;
-            padding: 1rem 0 1rem 2rem;
-            margin: 2rem 0;
-            font-style: italic;
-            font-size: 1.25rem;
-            color: #4a5568;
-            background: #f8f8f6;
-            border-radius: 0 8px 8px 0;
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
 
-        .img-caption {
-            padding: 0.5rem 1rem;
-            background: #f5f3ef;
-            font-size: 0.8rem;
-            text-align: center;
-            color: #555;
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .chat-container {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 3D Canvas Container (particles + ball) -->
-    <div id="canvas-container"></div>
-
-    <header class="site-header">
-        <div class="header-container">
-            <div class="logo-area">
-                <img src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774647704/IMG_5870_c1iroi.jpg" alt="Aman Kumar" class="owner-avatar">
-                <div>
-                    <a href="#" class="logo">LAKEVIYA<span>.</span></a>
-                    <div class="tagline">founded by Aman Kumar</div>
-                </div>
+    <div class="chat-container">
+        <div class="header">
+            <h1>HIRALAL<span>AI</span></h1>
+            <p>🔍 Google Search + News + Trends + Wikipedia + AI Assistants</p>
+            <div class="features">
+                <span class="feature-badge">🌐 Wikipedia</span>
+                <span class="feature-badge">📰 Google News</span>
+                <span class="feature-badge">📈 Google Trends</span>
+                <span class="feature-badge">🔗 Real Links</span>
+                <span class="feature-badge">🤖 ChatGPT/Perplexity/Gemini/Claude</span>
             </div>
-            <nav class="nav-links">
-                <a href="https://www.adityabirla.com/media/quick-takes/inside-the-us178-bn-rcb-deal/">Aditya Birla Group</a>
-                <a href="https://www.scconline.com/blog/post/2026/03/27/rcb-acquisition-aditya-birla-blackstone-khaitan-co/">SCC Online</a>
-                <a href="https://ndtv.in/cricket/ananya-birla-rcb-ipl-royal-challengers-bengaluru-name-to-be-changed-after-rs-16700-crore-sale-ananya-birla-might-just-have-answered-the-question-hindi-11267958">NDTV</a>
-                <a href="https://m.economictimes.com/news/sports/consortium-led-by-abg-and-the-times-of-india-group-acquires-rcb-for-1-8-billion/articleshow/129780613.cms">Economic Times</a>
-                <a href="https://www.reddit.com/r/RCB/comments/1s380xz/ananya_birlas_post_for_rcb/">Reddit</a>
-                <a href="https://www.iplt20.com/">IPL</a>
-            </nav>
+            <div class="founder">
+                <div class="founder-avatar">
+                    <img src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1777464875/57b3c985-6692-4127-9f35-fe10a0ac492b_yodpaf.jpg" alt="Aman Kumar">
+                </div>
+                <div class="founder-name">Investor: Aniruddh Kumar</div>
+            </div>
         </div>
-    </header>
 
-    <main class="main-container">
-        <article>
-            <div class="article-header">
-                <div class="category">SPORTS · BUSINESS · EXCLUSIVE</div>
-                <h1 class="article-title">RCB's New Era: Inside the Record $1.78 Billion Deal and the Birla Family's Cricket Homecoming</h1>
-                <div class="article-meta">
-                    <span>✍️ By Aman Kumar</span>
-                    <span>📅 March 28, 2026</span>
-                    <span>⏱️ 8 min read</span>
-                    <span>🏷️ Exclusive Analysis</span>
+        <div class="messages" id="messages">
+            <div class="message">
+                <div class="avatar ai-avatar">
+                    <img src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774647704/IMG_5870_c1iroi.jpg" alt="Zooni">
                 </div>
-            </div>
-
-            <!-- Ad 1: Amazon - RCB Jersey 
-            <div class="ad-container">
-                <div class="ad-label">Advertisement · Amazon</div>
-                <div class="ad-content">
-                    <img class="ad-image" src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774640484/IMG_8562_bwwyky.jpg" alt="RCB Jersey">
-                    <div class="ad-text">
-                        <h4>🏏 RCB Official Fan Jersey</h4>
-                        <p>Show your support in style. Breathable fabric, official team colours.</p>
-                        <div class="ad-price">₹1,299 only</div>
-                        <a href="https://www.amazon.in/s?k=RCB+jersey" target="_blank" rel="noopener noreferrer" class="ad-btn">Shop on Amazon →</a>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Featured RCB Stadium Image -->
-            <div class="featured-image">
-                <img class="featured-img" src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774636615/IMG_8560_vngyls.jpg" alt="RCB Stadium">
-                <div class="img-caption">M Chinnaswamy Stadium, Bengaluru — where the new chapter of RCB begins</div>
-            </div>
-
-            <div class="article-content">
-                <p>Popular IPL team the Royal Challengers Bengaluru (RCB) is back into focus—this time not for on-field action, but for a record-setting deal that reshapes the franchise’s future.</p>
-
-                <!-- Ad 2: Flipkart - Cricket Bat -->
-                <div class="ad-container">
-                    <div class="ad-label">Advertisement · Flipkart</div>
-                    <div class="ad-content">
-                        <img class="ad-image" src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=150&h=150&fit=crop" alt="Cricket Bat">
-                        <div class="ad-text">
-                            <h4>🏏 Premium Cricket Bat – Virat Kohli Edition</h4>
-                            <p>English willow, perfect for power hitters. Limited stock.</p>
-                            <div class="ad-price">₹4,499</div>
-                            <a href="https://www.flipkart.com/search?q=cricket+bat" target="_blank" rel="noopener noreferrer" class="ad-btn">Buy on Flipkart →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <p>In one of the biggest transactions seen in cricket, a consortium of Indian and global investors has acquired the Bengaluru-based team in an all-cash deal worth <strong>USD 1.78 billion (around ₹16,660 crore)</strong>. The franchise, which competes in both the Indian Premier League and the Women's Premier League, was previously owned by United Spirits Limited.</p>
-
-                <div class="pull-quote">
-                    "Will RCB get a new name after ₹16,700 crore sale? Ananya Birla drops a clue." — buzz across cricket circles
-                </div>
-
-                <p>The new ownership group brings together major names, including the <strong>Aditya Birla Group</strong>, <strong>Blackstone’s BXPE arm</strong>, <strong>Bolt Ventures</strong> led by David Blitzer, and the <strong>Times of India Group</strong>.</p>
-
-                <p>While the deal still awaits approval from the Board of Control for Cricket in India (BCCI), a key leadership decision has already been made: <strong>Aryaman Vikram Birla</strong> has been named chairman of the franchise.</p>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">$1.78B</div>
-                        <div class="stat-label">Acquisition Value</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">₹16,660Cr</div>
-                        <div class="stat-label">Indian Rupee Equivalent</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2018</div>
-                        <div class="stat-label">Aryaman's IPL Draft Year</div>
-                    </div>
-                </div>
-
-                <!-- Ad 3: Amazon - Cricket Shoes -->
-                <div class="ad-container">
-                    <div class="ad-label">Advertisement · Amazon</div>
-                    <div class="ad-content">
-                        <img class="ad-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop" alt="Cricket Shoes">
-                        <div class="ad-text">
-                            <h4>👟 RCB Edition Cricket Shoes</h4>
-                            <p>Maximum grip, lightweight design. Ideal for all pitches.</p>
-                            <div class="ad-price">₹2,999</div>
-                            <a href="https://www.amazon.in/s?k=cricket+shoes" target="_blank" rel="noopener noreferrer" class="ad-btn">Check on Amazon →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <h2>Who is Aryaman Birla?</h2>
-                <p>Aryaman’s appointment adds an interesting personal dimension to the story. Unlike many corporate appointees, he has firsthand experience of the game.</p>
-
-                <div class="video-note">
-                    <strong>🗣️ Also read:</strong> <em>Vijay Mallya congratulates RCB’s new owners: ‘RCB will always remain a part of my DNA’</em>
-                </div>
-
-                <!-- Aryaman Birla Image -->
-                <div class="featured-image">
-                    <img class="featured-img" src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774645597/IMG_8566_o1jwh8.webp" alt="Aryaman Birla">
-                    <div class="img-caption">Aryaman Vikram Birla — former Ranji Trophy cricketer, now chairman of RCB (Representative image)</div>
-                </div>
-
-                <p>The son of industrialist Kumar Mangalam Birla, Aryaman once pursued cricket seriously. At 17, he moved from Mumbai to Madhya Pradesh to further his career, after earlier stints in England with West Hampstead Cricket Club and the London Schools Cricket Association under former Middlesex cricketer Paul Weekes, earlier HT reported.</p>
-
-                <!-- Ad 4: Flipkart - RCB Merchandise -->
-                <div class="ad-container">
-                    <div class="ad-label">Advertisement · Flipkart</div>
-                    <div class="ad-content">
-                        <img class="ad-image" src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774640483/IMG_8563_xucjzd.jpg" alt="RCB Cap">
-                        <div class="ad-text">
-                            <h4>🧢 RCB Official Cap & Accessories</h4>
-                            <p>Complete your fan look. Caps, mugs, flags, and more.</p>
-                            <div class="ad-price">Starting ₹399</div>
-                            <a href="https://www.flipkart.com/search?q=RCB+merchandise" target="_blank" rel="noopener noreferrer" class="ad-btn">Explore on Flipkart →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="video-note">
-                    📺 <strong>Related coverage:</strong> "Why investors are paying billions for IPL teams like RCB, Rajasthan" — Vantage on Firstpost (Watch the analysis)
-                </div>
-
-                <p>His domestic breakthrough came in 2017 when he made his Ranji Trophy debut. A year earlier, he had already caught attention in the CK Nayudu Trophy, where he topped the run charts with <strong>602 runs at an impressive average of 75.25</strong>, including three centuries.</p>
-
-                <p>Across nine first-class matches—most of them during the 2018–19 Ranji season—he showed promise, including a determined maiden century against Bengal at Eden Gardens that helped Madhya Pradesh secure a draw. During this phase, he shared the dressing room with players like Rajat Patidar and Venkatesh Iyer, both now linked with RCB.</p>
-
-                <p>He was picked by Rajasthan Royals in 2018 but did not get a game during his stint. In December 2019, at just 22, Aryaman stepped away from cricket indefinitely, citing severe anxiety related to the sport.</p>
-
-                <h2>Who is Ananya Birla and why she’s in the spotlight</h2>
-
-                <!-- Ananya Birla Image -->
-                <div class="featured-image">
-                    <img class="featured-img" src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774645350/IMG_8565_hfjiss.webp" alt="Ananya Birla">
-                    <div class="img-caption">Ananya Birla — entrepreneur, investor, and key partner in RCB's new chapter (Representative image)</div>
-                </div>
-
-                <p>Even though she is not directly involved in the franchise’s ownership or operations, Ananya Birla has also drawn attention amid the developments.</p>
-
-                <p>The daughter of Kumar Mangalam Birla has built her own profile as an entrepreneur and investor, separate from the family’s business legacy. Born in Mumbai in 1994, she studied at the American School of Bombay before moving to the University of Oxford, where she specialised in economics and management, according to a report by NDTV.</p>
-
-                <!-- Ad 5: Amazon - Fantasy Cricket App -->
-                <div class="ad-container">
-                    <div class="ad-label">Advertisement · Amazon</div>
-                    <div class="ad-content">
-                        <img class="ad-image" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=150&h=150&fit=crop" alt="Fantasy Cricket">
-                        <div class="ad-text">
-                            <h4>📱 Play Fantasy Cricket – Win ₹1 Crore!</h4>
-                            <p>Create your RCB team. Get ₹500 bonus on first entry.</p>
-                            <div class="ad-price">Free to play</div>
-                            <a href="https://www.amazon.in/s?k=fantasy+cricket+app" target="_blank" rel="noopener noreferrer" class="ad-btn">Download Now →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <p>Her growing public presence, combined with the Birla family’s entry into cricket through this high-profile deal, has made her a name of interest in conversations around RCB. She is also one of the key principal partners associated with RCB.</p>
-
-                <!-- Image Gallery -->
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=250&fit=crop" alt="Cricket celebration">
-                        </div>
-                        <div class="gallery-caption">RCB at Chinnaswamy — the roar of Bengaluru (Photo: Unsplash)</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=250&fit=crop" alt="Cricket action">
-                        </div>
-                        <div class="gallery-caption">The intensity of IPL — where legends are made (Photo: Unsplash)</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-img">
-                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop" alt="Business deal">
-                        </div>
-                        <div class="gallery-caption">$1.78B — The deal that reshapes cricket economics (Photo: Unsplash)</div>
-                    </div>
-                </div>
-
-                <h2>What happens next</h2>
-                <p>For now, the transition remains subject to regulatory clearance from the BCCI. Once approved, the consortium will formally take over operations of the franchise.</p>
-
-                <p>With new ownership, a new chairman, and renewed attention around the team, Royal Challengers Bengaluru is entering a fresh chapter—one that blends corporate muscle with a personal cricketing connection at the top.</p>
-
-                <hr>
-                <p style="font-style: italic; color: #666;"><strong>Read more news like this on HindustanTimes.com</strong> — Lakeviya brings you original analysis and context behind the headlines.</p>
-            </div>
-
-            <!-- Founder Bio Section -->
-            <div class="owner-bio">
-                <img src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774624469/IMG_8558_kxbtyi.jpg" alt="Aman Kumar" class="owner-avatar-large">
-                <div class="owner-info">
-                    <h3>Aman Kumar</h3>
-                    <div class="owner-title">Founder & Editor-in-Chief, Lakeviya</div>
-                    <p>Aman Kumar is a journalist, entrepreneur, and the driving force behind Lakeviya. With over a decade of experience covering business, sports, and culture, he founded Lakeviya to bring nuanced, deeply-researched stories that sit at the intersection of consequence and humanity. Previously, he led coverage at leading national publications and has been recognized for his investigative work on sports economics. Aman believes in the power of context — that every deal, every game, and every life has a story waiting to be told the right way.</p>
-                    <div class="social-links">
-                        <a href="#">🐦 Twitter</a>
-                        <a href="https://www.instagram.com/aman.lakeviya?igsh=MXBra3V1ZjlucHRxeQ==&utm_source=ig_contact_invite">Instagram</a>
-                        <a href="https://wa.me/9369786632">WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ad 6: Flipkart - Women's IPL Merchandise -->
-            <div class="ad-container">
-                <div class="ad-label">Advertisement · Flipkart</div>
-                <div class="ad-content">
-                    <img class="ad-image" src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774624135/cld-sample.jpg" alt="WPL Merchandise">
-                    <div class="ad-text">
-                        <h4>🏏 Women's IPL Merchandise</h4>
-                        <p>Support the women in red & gold. Exclusive WPL collection.</p>
-                        <div class="ad-price">Starting ₹599</div>
-                        <a href="https://www.flipkart.com/search?q=WPL+merchandise" target="_blank" rel="noopener noreferrer" class="ad-btn">Shop Now →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="newsletter">
-                <h3>📬 The Lakeviya Compass</h3>
-                <p>Weekly insights from Aman Kumar on business, culture, and the stories shaping our world.</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="your@email.com">
-                    <button>Subscribe →</button>
-                </div>
-            </div>
-        </article>
-
-        <!-- Editor's Picks -->
-        <div class="picks-section">
-            <h3 class="picks-title">✧ Editor's Picks from Lakeviya</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                <div style="border-radius: 12px; overflow: hidden; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s;">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=220&fit=crop" style="width:100%; height:180px; object-fit:cover;">
-                    <div style="padding: 1rem;">
-                        <h4>The New Economics of IPL</h4>
-                        <p style="font-size: 0.85rem; color: #666;">How private equity is reshaping cricket franchises in India.</p>
-                    </div>
-                </div>
-                <div style="border-radius: 12px; overflow: hidden; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s;">
-                    <img src="https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774640482/IMG_8564_cy0e2k.webp" style="width:100%; height:180px; object-fit:cover;">
-                    <div style="padding: 1rem;">
-                        <h4>Mental Health in Sport</h4>
-                        <p style="font-size: 0.85rem; color: #666;">Aryaman Birla's candid revelation and what it means for athletes.</p>
-                    </div>
-                </div>
-                <div style="border-radius: 12px; overflow: hidden; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s;">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=220&fit=crop" style="width:100%; height:180px; object-fit:cover;">
-                    <div style="padding: 1rem;">
-                        <h4>Ananya Birla: Beyond the Name</h4>
-                        <p style="font-size: 0.85rem; color: #666;">The entrepreneur's growing influence in music, finance, and sports.</p>
-                    </div>
+                <div class="bubble ai-bubble">
+                    <strong>✨ Hiralal AI - Super Search Edition ✨</strong><br><br>
+                    Main ab <strong>Google Search, News, Trends, Wikipedia aur Top AI Assistants</strong> ke saath hoon!<br><br>
+                    🔍 <strong>Features:</strong><br>
+                    • 📖 Wikipedia articles with direct links<br>
+                    • 🔗 Google Search, News & Trends<br>
+                    • 🤖 <strong>ChatGPT • Perplexity • Gemini • Claude</strong> (ChatGPT aur Perplexity mein question pehle se filled)<br>
+                    • 💻 Coding solutions with references<br>
+                    • 🌐 Real sources & unlimited knowledge<br><br>
+                    <strong>Kuch bhi poochiye — main real links + AI assistant links dunga!</strong> 🚀
                 </div>
             </div>
         </div>
-    </main>
 
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>LAKEVIYA</h4>
-                <p>Founded by Aman Kumar. Stories at the intersection of culture, consequence, and the uncommon angle. Based in Mumbai | New Delhi | Bengaluru.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Sections</h4>
-                <p><a href="#">Business & Economy</a></p>
-                <p><a href="#">Sports & Strategy</a></p>
-                <p><a href="#">Culture & Identity</a></p>
-                <p><a href="#">Longform Essays</a></p>
-            </div>
-            <div class="footer-col">
-                <h4>Connect with Aman</h4>
-                <p><a href="https://www.instagram.com/aman.lakeviya?igsh=MXBra3V1ZjlucHRxeQ==&utm_source=ig_contact_invite">Instagram</a></p>
-                <p><a href="https://wa.me/9369786632">WhatsApp</a></p>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <p><a href="#">Privacy Policy</a></p>
-                <p><a href="#">Terms of Use</a></p>
-                <p><a href="#">Corrections Policy</a></p>
-            </div>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Ask anything... I'll give you real links + AI tools!" onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" id="sendBtn">Search 🔍</button>
         </div>
-        <div class="copyright">
-            ©️ 2026 Lakeviya Media. All rights reserved.
+        <div class="footer">
+            ©2026 HiralalAI |🤍Funded by Lakeviya
         </div>
-    </footer>
-
-    <!-- Three.js with animated "LAKEVIYA" text on the cricket ball -->
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
-            }
-        }
-    </script>
-    <script type="module">
-        import * as THREE from 'three';
-
-        const container = document.getElementById('canvas-container');
-        const scene = new THREE.Scene();
-        scene.background = null;
-        scene.fog = new THREE.FogExp2(0x000000, 0.002);
-
-        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 20;
-
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x000000, 0);
-        container.appendChild(renderer.domElement);
-
-        // --- Particle Background (unchanged) ---
-        const particleCount = 2000;
-        const particlesGeometry = new THREE.BufferGeometry();
-        const posArray = new Float32Array(particleCount * 3);
-        for (let i = 0; i < particleCount; i++) {
-            posArray[i*3] = (Math.random() - 0.5) * 200;
-            posArray[i*3+1] = (Math.random() - 0.5) * 100;
-            posArray[i*3+2] = (Math.random() - 0.5) * 80 - 40;
-        }
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const particleMaterial = new THREE.PointsMaterial({
-            color: 0xc49a6c,
-            size: 0.15,
-            transparent: true,
-            opacity: 0.4,
-            blending: THREE.AdditiveBlending
-        });
-        const particleSystem = new THREE.Points(particlesGeometry, particleMaterial);
-        scene.add(particleSystem);
-
-        // --- Create texture with "LAKEVIYA" text wrapping around the ball ---
-        const canvas = document.createElement('canvas');
-        canvas.width = 2048;
-        canvas.height = 1024; // 2:1 ratio for spherical mapping
-        const ctx = canvas.getContext('2d');
-
-        // Background: cricket ball red with shading
-        ctx.fillStyle = '#c44';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        // Add gradient for 3D look
-        const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        grad.addColorStop(0, '#b33');
-        grad.addColorStop(1, '#d55');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Draw seam stitching (simple)
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 12;
-        for (let i = 0; i < 6; i++) {
-            ctx.beginPath();
-            ctx.arc(canvas.width/2 + Math.sin(i * Math.PI/3) * 600, canvas.height/2 + Math.cos(i * Math.PI/3) * 300, 80, 0, 2*Math.PI);
-            ctx.fillStyle = '#fff';
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(canvas.width/2 + Math.sin(i * Math.PI/3 + Math.PI/6) * 600, canvas.height/2 + Math.cos(i * Math.PI/3 + Math.PI/6) * 300, 80, 0, 2*Math.PI);
-            ctx.fillStyle = '#000';
-            ctx.fill();
-        }
-
-        // --- Animated "LAKEVIYA" text (wrapped around equator) ---
-        // We'll draw the text multiple times around the texture so it wraps the ball.
-        ctx.font = 'Bold 140px "Helvetica Neue", "Poppins", sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        
-        const text = "LAKEVIYA";
-        const repetitions = 8; // number of times text repeats around the ball
-        const angleStep = (2 * Math.PI) / repetitions;
-        
-        for (let i = 0; i < repetitions; i++) {
-            const angle = i * angleStep;
-            // Convert angle to x coordinate on texture (0 to canvas.width)
-            const x = (angle / (2 * Math.PI)) * canvas.width;
-            const y = canvas.height / 2; // equator line
-            
-            // Save context for rotation
-            ctx.save();
-            ctx.translate(x, y);
-            // Rotate text to follow curve (slightly)
-            ctx.rotate(angle);
-            // Add gradient to text
-            const textGrad = ctx.createLinearGradient(-200, -50, 200, 50);
-            textGrad.addColorStop(0, '#f9d423');
-            textGrad.addColorStop(1, '#e67e22');
-            ctx.fillStyle = textGrad;
-            ctx.shadowColor = 'rgba(0,0,0,0.5)';
-            ctx.shadowBlur = 10;
-            ctx.fillText(text, 0, 0);
-            ctx.restore();
-            
-            // Also draw a smaller version on the opposite side for fullness
-            const x2 = ((angle + Math.PI) % (2*Math.PI)) / (2*Math.PI) * canvas.width;
-            ctx.save();
-            ctx.translate(x2, y);
-            ctx.rotate(angle + Math.PI);
-            ctx.fillStyle = textGrad;
-            ctx.fillText(text, 0, 0);
-            ctx.restore();
-        }
-        
-        // Add some gold accents
-        ctx.strokeStyle = '#f9d423';
-        ctx.lineWidth = 8;
-        ctx.beginPath();
-        ctx.ellipse(canvas.width/2, canvas.height/2, 800, 400, 0, 0, 2*Math.PI);
-        ctx.stroke();
-        
-        const ballTexture = new THREE.CanvasTexture(canvas);
-        ballTexture.wrapS = THREE.RepeatWrapping;
-        ballTexture.wrapT = THREE.RepeatWrapping;
-        ballTexture.repeat.set(1, 1);
-        
-        const ballGeometry = new THREE.SphereGeometry(1.2, 128, 128);
-        const ballMaterial = new THREE.MeshStandardMaterial({ 
-            map: ballTexture, 
-            roughness: 0.3, 
-            metalness: 0.7,
-            emissive: 0x442200,
-            emissiveIntensity: 0.15
-        });
-        const ball = new THREE.Mesh(ballGeometry, ballMaterial);
-        scene.add(ball);
-        ball.position.z = -3;
-        ball.position.y = 1;
-
-        // --- Lighting ---
-        const ambientLight = new THREE.AmbientLight(0x404060);
-        scene.add(ambientLight);
-        const mainLight = new THREE.DirectionalLight(0xffcc88, 1);
-        mainLight.position.set(2, 3, 4);
-        scene.add(mainLight);
-        const fillLight = new THREE.DirectionalLight(0x88aaff, 0.5);
-        fillLight.position.set(-2, 1, 3);
-        scene.add(fillLight);
-        const backLight = new THREE.PointLight(0xffaa66, 0.6);
-        backLight.position.set(0, 0, -5);
-        scene.add(backLight);
-        const rimLight = new THREE.PointLight(0xff9966, 0.4);
-        rimLight.position.set(1, 2, 2);
-        scene.add(rimLight);
-
-        // --- Mouse interaction for ball parallax ---
-        let mouseX = 0, mouseY = 0;
-        document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-        });
-
-        // --- Animation loop: rotate ball and update texture offset for scrolling text effect ---
-        let time = 0;
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 0.008;
-            
-            // Rotate ball on Y axis for 3D look
-            ball.rotation.y = time * 0.3;
-            ball.rotation.x = Math.sin(time * 0.5) * 0.15;
-            ball.rotation.z = Math.cos(time * 0.4) * 0.1;
-            
-            // Animate texture offset to make text scroll around the ball (adds movement)
-            ballTexture.offset.x += 0.002;
-            
-            // Follow mouse with smooth lerp
-            ball.position.x += (mouseX * 2 - ball.position.x) * 0.05;
-            ball.position.y += (-mouseY * 1.5 - ball.position.y) * 0.05;
-            
-            // Rotate particle field slowly
-            particleSystem.rotation.y = time * 0.05;
-            particleSystem.rotation.x = Math.sin(time * 0.1) * 0.1;
-            
-            renderer.render(scene, camera);
-        }
-        animate();
-        
-        // Resize handler
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-    </script>
+    </div>
 
     <script>
-        const subscribeBtn = document.querySelector('.newsletter-form button');
-        const emailInput = document.querySelector('.newsletter-form input');
-        if (subscribeBtn) {
-            subscribeBtn.addEventListener('click', function() {
-                const email = emailInput.value.trim();
-                if (email && email.includes('@')) {
-                    alert('Thanks for subscribing to Lakeviya! You\'ll hear from Aman soon.');
-                    emailInput.value = '';
-                } else {
-                    alert('Please enter a valid email address.');
-                }
+        let isProcessing = false;
+        
+        function copyToClipboard(text, assistantName) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert(`✅ Question copied! Paste it in ${assistantName}.`);
+            }).catch(() => {
+                alert("❌ Copy failed. Please copy manually.");
             });
         }
+
+        function getGoogleNewsLink(query) {
+            return `https://news.google.com/search?q=${encodeURIComponent(query)}&hl=en-IN&gl=IN&ceid=IN%3Aen`;
+        }
+        function getGoogleTrendsLink(query) {
+            return `https://trends.google.com/trends/explore?q=${encodeURIComponent(query)}`;
+        }
+
+        function getAIAssistantLinks(query) {
+            const encodedQuery = encodeURIComponent(query);
+            return `<br><br><strong>🤖 Ask AI Assistants:</strong><br>
+                <a href="https://chat.openai.com/?q=${encodedQuery}" target="_blank" class="google-link" title="Open ChatGPT with your question (press Enter to send)">💬 ChatGPT</a>
+                <a href="https://www.perplexity.ai/?q=${encodedQuery}" target="_blank" class="google-link" title="Open Perplexity with your question">🔍 Perplexity</a>
+                <a href="https://gemini.google.com/" target="_blank" class="google-link" title="Open Gemini (question not auto-filled)">⚡ Gemini</a>
+                <button class="copy-btn" onclick="copyToClipboard(\`${query.replace(/`/g, '\\`')}\`, 'Gemini')">📋 Copy</button>
+                <a href="https://claude.ai/new" target="_blank" class="google-link" title="Open Claude (question not auto-filled)">🧠 Claude</a>
+                <button class="copy-btn" onclick="copyToClipboard(\`${query.replace(/`/g, '\\`')}\`, 'Claude')">📋 Copy</button>
+                <span style="font-size: 9px; color: #666; display: inline-block; margin-top: 5px;">💡 ChatGPT & Perplexity: auto-filled | Gemini & Claude: copy & paste</span>`;
+        }
+        
+        async function searchWikipedia(query) {
+            try {
+                const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`;
+                const response = await fetch(searchUrl);
+                const data = await response.json();
+                
+                if (data.query.search.length > 0) {
+                    const results = [];
+                    for (let i = 0; i < Math.min(3, data.query.search.length); i++) {
+                        const title = data.query.search[i].title;
+                        const snippet = data.query.search[i].snippet.replace(/<[^>]*>/g, '');
+                        
+                        let fullContent = "";
+                        if (i === 0) {
+                            const contentUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(title)}&format=json&origin=*`;
+                            const contentRes = await fetch(contentUrl);
+                            const contentData = await contentRes.json();
+                            const pages = contentData.query.pages;
+                            const pageId = Object.keys(pages)[0];
+                            fullContent = pages[pageId].extract || "";
+                        }
+                        
+                        results.push({
+                            title: title,
+                            snippet: snippet.substring(0, 300),
+                            content: fullContent.substring(0, 800),
+                            url: `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_'))}`
+                        });
+                    }
+                    return { found: true, results: results };
+                }
+                return { found: false };
+            } catch (error) {
+                return { found: false, error: error.message };
+            }
+        }
+        
+        async function searchHindiWikipedia(query) {
+            try {
+                const searchUrl = `https://hi.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`;
+                const response = await fetch(searchUrl);
+                const data = await response.json();
+                
+                if (data.query.search.length > 0) {
+                    const title = data.query.search[0].title;
+                    const url = `https://hi.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_'))}`;
+                    
+                    const contentUrl = `https://hi.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(title)}&format=json&origin=*`;
+                    const contentRes = await fetch(contentUrl);
+                    const contentData = await contentRes.json();
+                    const pages = contentData.query.pages;
+                    const pageId = Object.keys(pages)[0];
+                    const content = pages[pageId].extract || "";
+                    
+                    return {
+                        found: true,
+                        title: title,
+                        content: content.substring(0, 800),
+                        url: url
+                    };
+                }
+                return { found: false };
+            } catch (error) {
+                return { found: false };
+            }
+        }
+        
+        function getGoogleSearchLink(query) {
+            return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        }
+        
+        function getYouTubeLink(query) {
+            return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+        }
+        
+        function getCodingAnswer(question) {
+            const q = question.toLowerCase();
+            
+            const codingResponses = {
+                'python fibonacci': {
+                    answer: `**🐍 Python - Fibonacci Series**\n\n\`\`\`python\ndef fibonacci(n):\n    a, b = 0, 1\n    result = []\n    for i in range(n):\n        result.append(a)\n        a, b = b, a + b\n    return result\n\nprint(fibonacci(10))  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]\n\`\`\``,
+                    links: [
+                        { name: "Python Fibonacci - Real Python", url: "https://realpython.com/python-fibonacci-sequence/" },
+                        { name: "W3Schools Python Tutorial", url: "https://www.w3schools.com/python/" }
+                    ]
+                },
+                'python factorial': {
+                    answer: `**🐍 Python - Factorial**\n\n\`\`\`python\ndef factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n-1)\n\nprint(factorial(5))  # 120\n\`\`\``,
+                    links: [
+                        { name: "Python Math Factorial", url: "https://docs.python.org/3/library/math.html#math.factorial" },
+                        { name: "GeeksforGeeks Factorial", url: "https://www.geeksforgeeks.org/factorial-in-python/" }
+                    ]
+                },
+                'javascript array': {
+                    answer: `**💛 JavaScript - Array Methods**\n\n\`\`\`javascript\nconst numbers = [1, 2, 3, 4, 5];\n\nconst doubled = numbers.map(x => x * 2);\nconst even = numbers.filter(x => x % 2 === 0);\nconst sum = numbers.reduce((a,b) => a + b, 0);\n\`\`\``,
+                    links: [
+                        { name: "MDN Array Methods", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" },
+                        { name: "W3Schools JS Arrays", url: "https://www.w3schools.com/js/js_arrays.asp" }
+                    ]
+                }
+            };
+            
+            for (let [key, value] of Object.entries(codingResponses)) {
+                if (q.includes(key)) {
+                    return value;
+                }
+            }
+            return null;
+        }
+        
+        async function searchAndAnswer(question) {
+            const q = question.toLowerCase();
+            const hasHindi = /[\u0900-\u097F]/.test(question);
+            
+            const codingAnswer = getCodingAnswer(question);
+            if (codingAnswer) {
+                let response = codingAnswer.answer;
+                response += `\n\n**🔗 Useful Links:**\n`;
+                codingAnswer.links.forEach(link => {
+                    response += `\n• 📖 <a href="${link.url}" target="_blank">${link.name}</a>`;
+                });
+                response += `\n\n**🔍 Google Resources:**<br>
+                    <a href="${getGoogleSearchLink(question)}" target="_blank" class="google-link">🔗 Google Search</a>
+                    <a href="${getGoogleNewsLink(question)}" target="_blank" class="google-link news-link">📰 Google News</a>
+                    <a href="${getGoogleTrendsLink(question)}" target="_blank" class="google-link trends-link">📈 Google Trends</a>
+                    <a href="${getYouTubeLink(question)}" target="_blank" class="google-link">🎬 YouTube</a>`;
+                response += getAIAssistantLinks(question);
+                return response;
+            }
+            
+            let wikiResult;
+            if (hasHindi) {
+                wikiResult = await searchHindiWikipedia(question);
+                if (wikiResult.found) {
+                    let response = `**📚 Wikipedia (Hindi) - ${wikiResult.title}**\n\n`;
+                    response += `${wikiResult.content}\n\n`;
+                    response += `**🔗 Read Full Article:**\n`;
+                    response += `• 📖 <a href="${wikiResult.url}" target="_blank">${wikiResult.title} on Wikipedia</a>\n\n`;
+                    response += `**🔍 Google Resources:**<br>
+                        <a href="${getGoogleSearchLink(question)}" target="_blank" class="google-link">🔗 Google Search</a>
+                        <a href="${getGoogleNewsLink(question)}" target="_blank" class="google-link news-link">📰 Google News</a>
+                        <a href="${getGoogleTrendsLink(question)}" target="_blank" class="google-link trends-link">📈 Google Trends</a>
+                        <a href="${getYouTubeLink(question)}" target="_blank" class="google-link">🎬 YouTube</a>`;
+                    response += getAIAssistantLinks(question);
+                    return response;
+                }
+            } else {
+                wikiResult = await searchWikipedia(question);
+                if (wikiResult.found) {
+                    let response = `**📚 Wikipedia Knowledge**\n\n`;
+                    
+                    wikiResult.results.forEach((result, index) => {
+                        if (index === 0) {
+                            response += `**📖 ${result.title}**\n\n`;
+                            response += `${result.content || result.snippet}\n\n`;
+                            response += `**🔗 Source:** <a href="${result.url}" target="_blank">Read full article on Wikipedia</a>\n\n`;
+                        } else {
+                            response += `**📌 Related: ${result.title}**\n`;
+                            response += `${result.snippet}\n`;
+                            response += `🔗 <a href="${result.url}" target="_blank">Read more</a>\n\n`;
+                        }
+                    });
+                    
+                    response += `**🔍 Google Resources:**<br>
+                        <a href="${getGoogleSearchLink(question)}" target="_blank" class="google-link">🔗 Google Search</a>
+                        <a href="${getGoogleNewsLink(question)}" target="_blank" class="google-link news-link">📰 Google News</a>
+                        <a href="${getGoogleTrendsLink(question)}" target="_blank" class="google-link trends-link">📈 Google Trends</a>
+                        <a href="${getYouTubeLink(question)}" target="_blank" class="google-link">🎬 YouTube</a>`;
+                    response += getAIAssistantLinks(question);
+                    
+                    return response;
+                }
+            }
+            
+            return `**🔍 Searching: "${question}"**\n\nI searched my knowledge base but didn't find exact Wikipedia articles. Here are some links to help you:\n\n**🔗 Real Links:**\n\n• <a href="${getGoogleSearchLink(question)}" target="_blank" class="google-link">🔍 Google Search</a>\n• <a href="${getGoogleNewsLink(question)}" target="_blank" class="google-link news-link">📰 Google News</a>\n• <a href="${getGoogleTrendsLink(question)}" target="_blank" class="google-link trends-link">📈 Google Trends</a>\n• <a href="${getYouTubeLink(question)}" target="_blank" class="google-link">🎬 YouTube</a>\n• <a href="https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(question)}" target="_blank" class="google-link">📚 Wikipedia Search</a>\n\n**💡 Try asking more specifically:**\n• Add more details to your question\n• Ask about specific topics like "What is machine learning?"\n• Ask for coding help like "Python fibonacci code"\n\n**You can also click the Google links above to explore!** 🚀` + getAIAssistantLinks(question);
+        }
+        
+        const messagesDiv = document.getElementById('messages');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        
+        function addMessage(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            if (isUser) messageDiv.classList.add('user-message');
+            
+            const avatar = document.createElement('div');
+            avatar.className = `avatar ${isUser ? 'user-avatar' : 'ai-avatar'}`;
+            if (!isUser) {
+                const img = document.createElement('img');
+                img.src = "https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774647704/IMG_5870_c1iroi.jpg";
+                img.alt = "Zooni";
+                avatar.appendChild(img);
+            } else {
+                avatar.textContent = 'U';
+            }
+            
+            const bubble = document.createElement('div');
+            bubble.className = `bubble ${isUser ? 'user-bubble' : 'ai-bubble'}`;
+            
+            let formatted = text;
+            formatted = formatted.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+                return `<pre><code>${code.trim()}</code></pre>`;
+            });
+            formatted = formatted.replace(/\n/g, '<br>');
+            
+            bubble.innerHTML = formatted;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(bubble);
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message';
+            typingDiv.id = 'typing';
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar ai-avatar';
+            const img = document.createElement('img');
+            img.src = "https://res.cloudinary.com/ddlc9pfgn/image/upload/v1774647704/IMG_5870_c1iroi.jpg";
+            img.alt = "Zooni";
+            avatar.appendChild(img);
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble ai-bubble';
+            bubble.innerHTML = '<div class="typing"><span></span><span></span><span></span> Searching Wikipedia & Google & preparing links...</div>';
+            
+            typingDiv.appendChild(avatar);
+            typingDiv.appendChild(bubble);
+            messagesDiv.appendChild(typingDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        function removeTyping() {
+            const typing = document.getElementById('typing');
+            if (typing) typing.remove();
+        }
+        
+        async function sendMessage() {
+            if (isProcessing) return;
+            
+            const message = userInput.value.trim();
+            if (message === '') return;
+            
+            addMessage(message, true);
+            userInput.value = '';
+            
+            isProcessing = true;
+            sendBtn.disabled = true;
+            showTyping();
+            
+            try {
+                const answer = await searchAndAnswer(message);
+                removeTyping();
+                addMessage(answer, false);
+            } catch (error) {
+                removeTyping();
+                addMessage("Sorry, I encountered an error. Please try again.", false);
+            } finally {
+                isProcessing = false;
+                sendBtn.disabled = false;
+                userInput.focus();
+            }
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        userInput.focus();
     </script>
 </body>
 </html>
